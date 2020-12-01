@@ -97,7 +97,17 @@ Deploy WordPress Application into Karbon Kubernetes Cluster
 Create a blueprint to deploy the Wordpress application
 ......................................................
 
-#. Putty into the 1st Kubernetes Master Node IP address.  Create a secret named mysql-pass.  Run this command
+#. The Karbon Kubernetes Cluster application also provison a kubectl client.  Click on **Application**.  Click on the **Kubernetes Cluster** name.  
+
+#. Click on **Service**. Click on **Open Terminal** 
+
+  .. figure:: images/K8S-Cluster-Service.png
+
+#. Run this command to get the Karbon Kubernetes cluster kube config
+
+  .. literalinclude:: kubeconfig.sh
+
+#. Create a secret named mysql-pass.  Run this command
 
   .. literalinclude:: create-secret.sh
   

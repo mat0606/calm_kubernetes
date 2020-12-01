@@ -42,7 +42,7 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Kubernetes
+  :caption: Karbon Kubernetes
   :name: _calm_kubernetes
   :hidden:
 
