@@ -1,7 +1,7 @@
 .. _calm_kubernetes:
 
 -------------------------------------
-Calm: Kubernetes
+Calm: Nutanix Karbon Kubernetes
 -------------------------------------
 
 *The estimated time to complete this lab is 60 minutes.*
@@ -14,8 +14,6 @@ Pre-requisite:
 #.  **Python** knowledge would be an added advantage but not essential.
 
 
-
-
 Product Configuration
 +++++++++++++++++++++
 
@@ -26,8 +24,8 @@ Product Configuration
 #.  Calm Project & Environment Setup
 
 
-Install Karbon Kubernetes from Calm Marketplace
-+++++++++++++++++++++++++++++++++++++++++++++++
+Provision Karbon Kubernetes Cluster from Calm Marketplace
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #.	Click on the Market Place.  Click on the Kubernetes icon  
 
@@ -49,90 +47,9 @@ Install Karbon Kubernetes from Calm Marketplace
 
    .. figure:: images/Application-successful.png
 
-Retrieve the CA Client Certificate & Client Key in the Kubernetes Cluster
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-#. Click on the Services.  Expand the no of Master Node.  Select the 1st Master Node.  Note down the Master IP address
-
-  .. figure:: images/Application-service.png
-
-#. In the Putty console, run this command to ssh into the K8S Master Node
-
-  .. figure:: images/ssh_known_host.png
-
-#. Run this command  
-  
-  .. figure:: images/kubeconfig.png
-
-  .. literalinclude:: ls-kube.sh
-  
-#. Run this command to get the client certificate.  It was an example of the client certificate in my Kubernetes cluster.  The contents would be used later.
-  
-  .. literalinclude:: client-cert.sh
-  
-  ::
-
-    -----BEGIN CERTIFICATE-----
-    MIID1jCCAr6gAwIBAgIUH0mxkFlhFWeiD4jHBNn1PkgVsScwDQYJKoZIhvcNAQEL
-    BQAwYzELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExETAPBgNVBAcT
-    CFNhbiBKb3NlMQ0wCwYDVQQKEwRrdWJlMQswCQYDVQQLEwJDQTEQMA4GA1UEAxMH
-    a3ViZS1jYTAeFw0yMDEwMDUxMzExMDBaFw0yMTEwMDUxMzExMDBaMHAxCzAJBgNV
-    BAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMREwDwYDVQQHEwhTYW4gSm9zZTEX
-    MBUGA1UEChMOc3lzdGVtOm1hc3RlcnMxEDAOBgNVBAsTB0NsdXN0ZXIxDjAMBgNV
-    BAMTBWFkbWluMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuioOdCBy
-    rs1dIDdSi6hgMeZzwJePrt+fBVgWDGhhu3vmVwqlOC4TO0ZbXmnwld1fRcAz0/gD
-    zb6/PBpzAYZ0/9VVjWnfDAdVqxHUM4VCDHW3CBlUsPKwdO4ojKUS5KOUb5nsOgse
-    xN6taCQx2bzVPbe+OktL1uiTwFKUWfk4t06BusX/M+aQO0Zb4wxRVbM7hkUt/Vrq
-    dwZps6SLvdmLjHieGtBgAPDa8UON50VIM0zOM1uw4o/5isMbFrFhyDo3CDZresaK
-    b5fR8xGOyAO7Bg5Gz6JcgJB5EUFVOZMofVn21tLNnQEnl92EK005suSUJK620277
-    nHFIzJjcN8P3PwIDAQABo3UwczAOBgNVHQ8BAf8EBAMCBSAwEwYDVR0lBAwwCgYI
-    KwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQUpPMg8Zrj/9SR4KB1nw82
-    FPlSTiIwHwYDVR0jBBgwFoAUv2DRV84bNnWcBCNdwZTeWgLwFpIwDQYJKoZIhvcN
-    AQELBQADggEBAF+onhC7WgraRyv7PatJappFMQChYF6M/AcXbWoJDRlPpgeHZt1T
-    0X+LpkJX0iwpwQ3pDrUG72mbscTml/LmsXcEL6nAzYyrkJaj/fxX6W9HXhTbs8Ik
-    Q3HhTRUWXJSAMPtROUy2PhTk59KdLr5tAZMaPAkYkkSubD/voji4wqt2ikxTWsc7
-    +yW0mZma15ASkzBMn5Xljn3pbuA3HRg3/mnY3p0B0HX8jBF2NmMyGqwJppLxIq+/
-    9KZm7mDvGvhrFC6hTn4OCenbQKQlWd3/WyURsspoZ64Kx7ffI2fckeckkhdGM4rr
-    VQsarb4SjeZkm5tlDl/vuR9drdfKmEZc+jA=
-    -----END CERTIFICATE-----
-
-#.  Run this command to get the client key.  It was an example of the client key in my Kubernetes cluster.  The contents would be used later.
-  
-  .. literalinclude:: client-key.sh
-  
-  ::
-
-    -----BEGIN RSA PRIVATE KEY-----
-	MIIEpAIBAAKCAQEAuioOdCByrs1dIDdSi6hgMeZzwJePrt+fBVgWDGhhu3vmVwql
-	OC4TO0ZbXmnwld1fRcAz0/gDzb6/PBpzAYZ0/9VVjWnfDAdVqxHUM4VCDHW3CBlU
-	sPKwdO4ojKUS5KOUb5nsOgsexN6taCQx2bzVPbe+OktL1uiTwFKUWfk4t06BusX/
-	M+aQO0Zb4wxRVbM7hkUt/VrqdwZps6SLvdmLjHieGtBgAPDa8UON50VIM0zOM1uw
-	4o/5isMbFrFhyDo3CDZresaKb5fR8xGOyAO7Bg5Gz6JcgJB5EUFVOZMofVn21tLN
-	nQEnl92EK005suSUJK620277nHFIzJjcN8P3PwIDAQABAoIBABSesekk6u73qjf2
-	SLtVVApS50FOyEhrVnbGEfMf4Kteht3fPPujBthK67XicBZ5ZaMZLeRtlSZF2XKz
-	z0c8+FqZ65b1QhJYAaIoIGPwf6dXpoVMIPhUeT0KYA1r/1K516gg2Wx4bNkLfROK
-	5saiRtBGONjGHElai3sC6pGorCKJa9IT7LxsfUd+dLebeKLamAXkXn4TkeSj67f1
-	YIX2i/eoxOJAjnGBjiE3CMu7OlZEkMYDFwLjqNFYovEWZZwdub5+agMYQ/T//T1u
-	OdGGqZjGQCgracaYbAEfghvmpgMpvPKXyfciFIRAdLTP+dNgGa++u+OTQOflsC8Y
-	Z+lhgXECgYEA91cw5riakTwmsQjAUBYziwmQt6o64xeg9uQ0f6XqcHAoEnlCMCO0
-	j0A5JoCtd2F7UVn35mascq3O3taZe7s1tCuL+TSNO6L8/QcZmV9T7W0eSIa9JIA7
-	OW2UOsjQHP9rSPsxomSCfc2d2IcjOIc7pqriCfGle4m/0nWXh0fE93cCgYEAwK6R
-	bzmfYHBNrszjkm3UuK/l7XmHOEerH1+1t4wrjiSTiGLD8abawt2Kj+4oKMrNv3uM
-	4Cxx33zfNNGgZBNRic0/rTjZGUpeBhGL25pBKuW32fIDg8Dqr+isvhAa05DYEcGl
-	u9oDmGRUTYplOtqwwS+5kuEuu88sC8WdmQJtAHkCgYEAguJoxi653FDwSI5Q9hBJ
-	hjGxmv9B2hoO25c3ELVDsewnyF7SX5cFXSinFXDSWnIDR7FMNWfvqV/AMLtuzMLs
-	UEMa9uyQMBa3uU2ghkCjsOglNkvWmxIgROtvnQvW1QF0TFJgmYaGZvv/oy0fvjIR
-	psiWhJyS7SSflUcUwEmCOVECgYBQYMJEnsoQheiyEcChVfXWMXJ+NSMmZCdLiDaa
-	4ftNaY6t512MEinR/m8OCbBxC+D2jwi+f2vlagcG1qfM944dKST2Eu/lr/M3Htyz
-	+E5VIc0nOuEidjiwtyRQiRFXzmWESr7jdVfom3nbeu8ttQrlHA6S6iL/r7XVF1Pd
-	/3gPKQKBgQD2OSbofzbhRCq+RUH3b9igZjEC+4lYy5dfkUG5GR/diw1eeksiPAD0
-	8EZO4+Cai9UfeY49rGhHRbPa3/VC/rOCYzmPcklUKqKa6ixjv/Z2pz2wRoCb856K
-	I6EU+ctuz4iFRLK6kXwXb7gV8QEgtJOS1/fj7nkUV7MvLvaot2VX2w==
-	-----END RSA PRIVATE KEY----
-
-
-Add a Kubernetes Provider in Calm
-+++++++++++++++++++++++++++++++++
+Add a Karbon Kubernetes Provider in Calm
+++++++++++++++++++++++++++++++++++++++++
 
 #. Click on Setting.  Click on Providers
 
@@ -148,9 +65,9 @@ Add a Kubernetes Provider in Calm
 
 #. Scroll down and key in the following:
 
-   - **Auth Type** - Certificate
-   - **Client Certificate** - Paste the contents of the client certificate
-   - **Client Key** - Paste the contents of the client key
+   - **Type** - Kubernetes
+   - **Type** - Karbon
+   - **Cluster** - Select the Karbon Kubernetes cluster created earlier
 
   .. figure:: images/K8S_Provider_Contents.png
 
@@ -158,8 +75,8 @@ Add a Kubernetes Provider in Calm
 
   .. figure:: images/Provider-Verification.png
 
-Add the Kubernetes Provider to the Calm Project
-...............................................
+Add the Karbon Kubernetes Provider to the Calm Project
+......................................................
 
 #. Click on **Project**.  Drill into your respective project
 
@@ -174,8 +91,8 @@ Add the Kubernetes Provider to the Calm Project
   .. figure:: images/K8S_Added_To_Project.png
 
 
-Deploy WordPress Application into Kubernetes Cluster
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Deploy WordPress Application into Karbon Kubernetes Cluster
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Create a blueprint to deploy the Wordpress application
 ......................................................
