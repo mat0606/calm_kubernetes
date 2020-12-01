@@ -1,4 +1,4 @@
-.. title:: STEE Partner Deep Dive Bootcamp
+.. title:: Automation & Cloud Native Bootcamp
 
 .. toctree::
   :maxdepth: 2
@@ -42,7 +42,15 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Nutanix Calm for Day 2 Operation
+  :caption: Kubernetes
+  :name: _calm_kubernetes
+  :hidden:
+
+  calm_kubernetes/calm_kubernetes
+
+.. toctree::
+  :maxdepth: 2
+  :caption: CI/CD
   :name: _karbon_cicd
   :hidden:
 
