@@ -94,16 +94,26 @@ Add the Karbon Kubernetes Provider to the Calm Project
 Deploy WordPress Application into Karbon Kubernetes Cluster
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Create a blueprint to deploy the Wordpress application
-......................................................
+Download Karbon Kubeconfig & Create Secret
+..........................................
+
+#. This section is to create the secret for the wordpress container to connect to the mysql container securely.  The yaml file contains a reference instead of the password.
 
 #. The Karbon Kubernetes Cluster application also provison a kubectl client.  Click on **Application**.  Click on the **Kubernetes Cluster** name.  
+
+#. Click on **Manage**. Click on **Download Kube Config** to download the Kubeconfig.  Click on **Run**
+
+  .. figure:: images/K8S-App-Download-Kubeconfig.png
+
+#. Check on the Audit section to ensure the latest Karbon Kubeconfig file was downloaded successfully.
+
+  .. figure:: images/download-kubeconfig-audit.png
 
 #. Click on **Service**. Click on **Open Terminal** 
 
   .. figure:: images/K8S-Cluster-Service.png
 
-#. Run this command to get the Karbon Kubernetes cluster kube config
+#. Run this command to get the Karbon Kubernetes cluster kube config.  Please remember to change the <karbon-cluster-name> to the Karbon Kubernetes cluster created earlier.
 
   .. literalinclude:: kubeconfig.sh
 
@@ -112,6 +122,9 @@ Create a blueprint to deploy the Wordpress application
   .. literalinclude:: create-secret.sh
   
   .. figure:: images/CreateSecret.png
+
+Create a blueprint to deploy the Wordpress application
+......................................................
 
 #. Go to the blueprint.  Choose **Multi VM/Pod** Blueprint.
 
