@@ -69,7 +69,11 @@ Configure the Environment in Project
 
    .. figure:: images/centos_credential.png
    
-#. Expand the **Linux** section.  Copy the **cloud-init** contents into the **Guest Customization**
+#. Expand the **Linux** section.  Fill in the following hardware specification.
+
+   .. figure:: images/Linux-Environment.png
+
+#. Copy the **cloud-init** contents into the **Guest Customization**
   
    .. code-block:: bash
    
