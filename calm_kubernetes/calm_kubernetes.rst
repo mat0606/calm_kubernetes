@@ -257,22 +257,26 @@ Launch the WordPress application into Kubernetes cluster
 Verify the Wordpress application
 ********************************
 
-#.  Go to the Kubernetes application.  Expand the **Master**.  Choose the 1st Master Node.  Click on **Open Terminal**
+#.  In Calm, Click on Application.  Drill into the Karbon Kubernetes application created earlier.  Click on **Open Terminal**
 
-  .. figure:: images/Wordpress_Service.png
+  .. figure:: images/K8S_Client_IP.png
 
 #.  Run this command to ensure the **wordpress** and **wordpress-mysql** pods were started successfully
 
   .. figure:: images/WP_kubectl.png
 
+  .. literalinclude:: WP-kubectl.sh
+ 
 #.  Run this command to identify the service for the wordpress application.
 
   .. figure:: images/WPSvc_kubectl.png
 
-#.  Expand the Kubernetes worker node.  Note down the IP address
+#.  Run this command to get the IP address for the Karbon Kubernetes Worker Node.  Note down the InternalIP address
 
-  .. figure:: images/Svc_Worker.png
+  .. figure:: images/WorkerNode-InternalIP.png
 
+  .. literalinclude:: WP-worker.sh
+  
 #.  Open a new Chrome browser.  Key in the **Worker NodeIP address:NodePort** for wordpress.  In my example, it was http://10.38.207.64:32595.
 
   .. figure:: images/WP.png
@@ -304,7 +308,7 @@ Provision MetalLB into the Kubernetes Cluster
 
 #.  Fill in the following:
 
-  - **Name of the application** - 
+  - **Karbon Kubernetes Cluster** - Select the Karbon Kubernetes Cluster 
   - **K8S Master Node IP ** - Find out the 1st Master Node IP address for your Kubernetes Cluster
   - **Start IP address** - Please check the IP address range was available before you defined the range.  Give a max of 3 IP address
   - **End IP address** - Please check the IP address range was available before you defined the range.
